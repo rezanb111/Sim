@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>صادرات به آفریقا | سیما خورشیدیان</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js"></script>
+
+<style>
+:root{
+  --gold:#f7c948;
+  --orange:#f97316;
+  --red:#b91c1c;
+  --green:#0f766e;
+  --blue:#0f172a;
+  --cream:#fff7ed;
+  --ink:#111827;
+  --muted:#64748b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font-family:Vazirmatn,Tahoma,sans-serif;background:#050816;color:#fff;overflow:hidden}
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  background:
+    radial-gradient(circle at 15% 15%,rgba(247,201,72,.22),transparent 28%),
+    radial-gradient(circle at 80% 20%,rgba(249,115,22,.20),transparent 28%),
+    radial-gradient(circle at 50% 85%,rgba(15,118,110,.24),transparent 30%),
+    linear-gradient(135deg,#020617,#111827 48%,#3b0a0a);
+  z-index:-3;
+}
+body::after{
+  content:"";
+  position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:34px 34px;
+  mask-image:radial-gradient(circle at center,#000 40%,transparent 82%);
+  z-index:-2;
+}
+.topbar{
+  position:fixed;top:14px;left:14px;right:14px;z-index:50;
+  display:flex;gap:10px;align-items:center;justify-content:space-between;
+  pointer-events:none;
+}
+.brand,.controls{pointer-events:auto}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(15,23,42,.72);border:1px solid rgba(247,201,72,.38);
+  backdrop-filter:blur(14px);padding:10px 14px;border-radius:999px;
+  box-shadow:0 14px 40px rgba(0,0,0,.25)
+}
+.logo{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  background:conic-gradient(from 180deg,var(--gold),var(--orange),var(--red),var(--green),var(--gold));
+  color:#111;font-weight:900
+}
+.brand small{display:block;color:#cbd5e1;font-weight:500;margin-top:2px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+button{
+  font-family:inherit;border:0;cursor:pointer;border-radius:999px;
+  padding:10px 14px;font-weight:800;color:#111;
+  background:linear-gradient(135deg,#fff7ad,var(--gold),#f59e0b);
+  box-shadow:0 12px 28px rgba(247,201,72,.18);
+}
+button.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
+button.danger{background:linear-gradient(135deg,#fb7185,#f97316,#facc15)}
+button:active{transform:translateY(1px)}
+.deck{height:100vh;width:100vw;position:relative}
+.slide{
+  position:absolute;inset:0;display:none;
+  padding:86px 74px 52px;
+  overflow:hidden;
+}
+.slide.active{display:flex}
+.slide-inner{
+  width:100%;height:100%;position:relative;
+  border-radius:34px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 28px 90px rgba(0,0,0,.42), inset 0 0 0 1px rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+}
+.slide-inner::before{
+  content:"";position:absolute;inset:-2px;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(247,201,72,.28),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(249,115,22,.24),transparent 30%),
+    radial-gradient(circle at 65% 90%,rgba(20,184,166,.22),transparent 30%);
+  z-index:0;
+}
+.slide-inner>*{position:relative;z-index:1}
+.cover .slide-inner{
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;
+  padding:56px;
+  background:
+    linear-gradient(135deg,rgba(15,23,42,.82),rgba(69,10,10,.55)),
+    radial-gradient(circle at 70% 50%,rgba(247,201,72,.18),transparent 35%);
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#111;background:linear-gradient(135deg,#fff7ad,var(--gold));
+  border-radius:999px;padding:9px 14px;font-weight:900;margin-bottom:18px
+}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(42px,5vw,82px);line-height:1.12;font-weight:950;letter-spacing:-1.5px}
+h2{font-size:clamp(28px,3.2vw,54px);line-height:1.25;font-weight:950;color:#fff}
+h3{font-size:clamp(22px,2.3vw,34px);line-height:1.4;color:var(--gold)}
+.subtitle{font-size:22px;line-height:2;color:#e2e8f0;margin-top:20px}
+.author{
+  margin-top:28px;display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;padding:16px 18px;color:#fff
+}
+.visual{
+  min-height:430px;border-radius:30px;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle at 24% 22%,#facc15,transparent 18%),
+    radial-gradient(circle at 72% 28%,#fb923c,transparent 18%),
+    radial-gradient(circle at 58% 74%,#14b8a6,transparent 20%),
+    linear-gradient(135deg,#111827,#7f1d1d);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 20px 60px rgba(0,0,0,.3)
+}
+.visual::before{
+  content:"";position:absolute;inset:24px;border-radius:28px;
+  border:1px solid rgba(255,255,255,.2);
+  background:
+    linear-gradient(45deg,transparent 48%,rgba(255,255,255,.15) 49%,rgba(255,255,255,.15) 51%,transparent 52%),
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.12),transparent 58%);
+}
+.visual::after{
+  content:"🌍";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-size:160px;filter:drop-shadow(0 20px 35px rgba(0,0,0,.5))
+}
+.chapter .slide-inner{
+  display:grid;grid-template-columns:.86fr 1.14fr;gap:26px;padding:46px;
+}
+.chapter-card{
+  align-self:stretch;border-radius:28px;padding:34px;
+  background:linear-gradient(135deg,rgba(247,201,72,.20),rgba(249,115,22,.12),rgba(15,118,110,.12));
+  border:1px solid rgba(247,201,72,.35);
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.big-num{font-size:92px;font-weight:950;color:var(--gold);line-height:1}
+.chapter-title{font-size:34px;line-height:1.55;font-weight:950}
+.icon-wall{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-content:center
+}
+.icon-tile{
+  min-height:150px;border-radius:26px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
+  display:grid;place-items:center;font-size:70px;
+  box-shadow:inset 0 0 40px rgba(255,255,255,.04)
+}
+.content .slide-inner{padding:38px 42px;display:grid;grid-template-rows:auto 1fr auto;gap:18px}
+.content-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.badge{
+  flex:0 0 auto;background:rgba(247,201,72,.16);color:#fde68a;
+  border:1px solid rgba(247,201,72,.36);border-radius:999px;
+  padding:9px 14px;font-weight:900
+}
+.textbox{
+  overflow:auto;padding:25px;border-radius:27px;
+  background:linear-gradient(135deg,rgba(2,6,23,.76),rgba(15,23,42,.54));
+  border:1px solid rgba(255,255,255,.13);
+  line-height:2.08;font-size:21px;text-align:justify;color:#f8fafc;
+  scrollbar-width:thin;scrollbar-color:var(--gold) rgba(255,255,255,.08)
+}
+.textbox p{margin:0 0 13px}
+.textbox .line{display:block;margin-bottom:10px}
+.footer{
+  display:flex;align-items:center;justify-content:space-between;color:#cbd5e1;font-size:14px
+}
+.progress{height:8px;background:rgba(255,255,255,.11);border-radius:999px;overflow:hidden;width:38%}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--orange),var(--green));width:0%}
+.layout-1 .slide-inner{background:linear-gradient(135deg,rgba(88,28,135,.35),rgba(15,23,42,.72))}
+.layout-2 .slide-inner{background:linear-gradient(135deg,rgba(20,83,45,.35),rgba(15,23,42,.72))}
+.layout-3 .slide-inner{background:linear-gradient(135deg,rgba(124,45,18,.40),rgba(15,23,42,.72))}
+.layout-4 .slide-inner{background:linear-gradient(135deg,rgba(30,64,175,.35),rgba(15,23,42,.72))}
+.layout-5 .slide-inner{background:linear-gradient(135deg,rgba(127,29,29,.35),rgba(15,23,42,.72))}
+.handout{overflow:auto}
+.handout body{overflow:auto}
+.handout .deck{height:auto}
+.handout .slide{
+  position:relative;display:flex;page-break-after:always;
+  height:56.25vw;min-height:720px;max-height:900px
+}
+.handout .slide:not(.active){display:flex}
+.handout .topbar{position:sticky}
+@media print{
+  html,body{overflow:visible;background:#fff}
+  .topbar{display:none}
+  .deck{height:auto}
+  .slide{position:relative;display:flex;height:100vh;page-break-after:always;padding:0}
+  .slide:not(.active){display:flex}
+  .slide-inner{border-radius:0}
+}
+@media(max-width:900px){
+  html,body{overflow:auto}
+  .slide{padding:82px 14px 22px;position:relative;display:none;min-height:100vh}
+  .slide.active{display:flex}
+  .cover .slide-inner,.chapter .slide-inner{grid-template-columns:1fr}
+  .visual{min-height:260px}
+  h1{font-size:40px}.textbox{font-size:17px}
+  .controls button{padding:9px 11px;font-size:12px}
+}
+</style>
+</head>
+
+<body>
+<div class="topbar">
+  <div class="brand">
+    <div class="logo">S</div>
+    <div>
+      <b>جزوه آموزشی صادرات به آفریقا</b>
+      <small>نویسنده: سیما خورشیدیان</small>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="secondary" onclick="prevSlide()">قبلی</button>
+    <button onclick="nextSlide()">بعدی</button>
+    <button class="secondary" onclick="toggleHandout()">نمای جزوه</button>
+    <button class="danger" onclick="window.print()">دانلود PDF / چاپ</button>
+    <button onclick="downloadPPTX()">دانلود PowerPoint</button>
+  </div>
+</div>
+
+<div id="deck" class="deck"></div>
+
+<script>
+const BOOK_TEXT = `فصل اول: مقدمه - چرا صادرات به آفريقا؟ (فرصت‌ها، مزايا، چالش‌ها و آينده‌نگرى راهبردى)
+اقتصاد امروز ایران به دلیل محدودیت‌های منطقه‌ای و فشارهای بین‌المللی نیازمند کشف بازارهای جدید است. قاره آفریقا با جمعیتی بالغ بر ۱.۳ میلیارد نفر که بر اساس پیش‌بینی‌های دموگرافیک تا سال ۲۰۵۰ به بیش از ۲ میلیارد نفر می‌رسد، یکی از بکرترین و پررونق‌ترین بازارهای مصرفی جهان را داراست. رشد سریع طبقه متوسط، افزایش شهرنشینی و تغییر الگوی مصرف در این قاره، تقاضا برای کالاهای اساسی، مصالح ساختمانی و خدمات فنی و مهندسی را به شدت افزایش داده است.
+بسیاری از بازرگانان به دلیل اطلاعات نادرست رسانه‌ای، آفریقا را قاره‌ای فقیر و ناامن می‌دانند. این یک خطای راهبردی در علم بازرگانی است. نرخ رشد اقتصادی در کشورهایی مانند کنیا، رواندا و ساحل عاج در سال‌های اخیر همواره بالاتر از میانگین جهانی بوده است. بیش از ۷۰ درصد کالاهای مصرفی در اکثر کشورهای آفریقایی وارداتی هستند. این وابستگی شدید به واردات، فرصتی طلایی برای تولیدکنندگان ایرانی ایجاد می‌کند.
+مزیت‌های رقابتی ایران برای ورود به بازار آفریقا عبارتند از:
+۱. قیمت تمام‌شده پایین کالاها در ایران به دلیل دسترسی به انرژی ارزان و نیروی کار ماهر.
+۲. کیفیت بالای محصولات ایرانی در حوزه مصالح ساختمانی، صنایع غذایی و محصولات پتروشیمی در مقایسه با رقبای منطقه‌ای.
+۳. تنوع تولیدات ایران که می‌تواند نیازهای مختلف بازارهای آفریقایی را پوشش دهد.
+با این حال، صادرات به این قاره چالش‌های جدی نیز دارد. نبود خطوط کشتیرانی مستقیم منظم، پیچیدگی‌های نقل و انتقال مالی به دلیل تحریم‌ها، کمبود اطلاعات دست اول از بازار و فعالیت سنگین رقبایی مانند چین، ترکیه و هند از مهم‌ترین موانع این مسیر هستند. موفقیت در این بازار نیازمند تغییر دیدگاه از تجارت سنتی به بازرگانی استراتژیک و پایدار است.
+فصل دوم: آشنايى با بازار آفریقا و کشورهای اولویت‌دار براى صادرات از ايران
+قاره آفریقا به ۵ منطقه اصلی (شمال، جنوب، شرق، غرب و مرکز) تقسیم می‌شود که هر کدام ویژگی‌های اقتصادی، فرهنگی و قانونی کاملاً متفاوتی دارند. برای یک تاجر ایرانی، تمرکز بر کل قاره غیرممکن است. بنابراین باید بر اساس شاخص‌های ثبات اقتصادی، سهولت کسب و کار، زیرساخت‌های بندری و روابط سیاسی، کشورهای اولویت‌دار را انتخاب کرد.
+کنیا (دروازه شرق آفریقا):
+کنیا به عنوان موتور محرکه اقتصادی شرق آفریقا شناخته می‌شود. بندر مومباسا در این کشور، اصلی‌ترین هاب ترانزیتی برای دسترسی به کشورهای محصور در خشکی مانند اوگاندا، رواندا، بوروندی و سودان جنوبی است. زبان رسمی تجاری در کنیا انگلیسی است که این امر مذاکرات و نگارش قراردادها را بسیار تسهیل می‌کند. وجود مرکز نوآوری و فناوری ایران (iHiT) در نایروبی، بستر مناسبی را برای ثبت شرکت و بازاریابی محصولات ایرانی فراهم کرده است.
+ساحل عاج (قطب اقتصادی غرب آفریقا):
+این کشور با پایتخت اقتصادی خود، آبیجان، مرکز ثبات و رشد در حوزه کشورهای فرانسوی‌زبان غرب آفریقا است. بندر آبیجان یکی از بزرگ‌ترین و مدرن‌ترین بنادر کل قاره است. ساحل عاج به عنوان بزرگ‌ترین تولیدکننده کاکائو در جهان، پتانسیل بالایی برای تهاتر کالا دارد. نیاز شدید این کشور به مصالح ساختمانی، کودهای شیمیایی و قیر، آن را به یک هدف استراتژیک برای ایران تبدیل کرده است.
+نیجریه (بزرگ‌ترین بازار مصرفی):
+با جمعیتی نزدیک به ۲۲۰ میلیون نفر، نیجریه پرجمعیت‌ترین کشور آفریقا است. این کشور به دلیل درآمدهای نفتی بالا، قدرت خرید مناسبی دارد. هرچند چالش‌های امنیتی و نوسانات نرخ ارز در نیجریه بالا است، اما حجم بالای تقاضا برای مواد غذایی، محصولات پتروشیمی و دارو، ریسک ورود به این بازار را توجیه می‌کند.
+آفریقای جنوبی (پیشرفته‌ترین زیرساخت):
+صنعتی‌ترین و پیشرفته‌ترین اقتصاد قاره که از سیستم بانکی و حقوقی بسیار محکمی برخوردار است. استانداردهای ورود کالا به این کشور بسیار سخت‌گیرانه است، اما ورود به آن، اعتبار تجاری بالایی برای بازرگان ایجاد می‌کند.
+فصل سوم: كالاهاى مناسب براى صادرات به آفريقا
+شناخت نیاز واقعی بازار هدف، کلید اصلی انتخاب کالا است. بر اساس تحلیل داده‌های تجاری، کالاهای ایرانی در چهار گروه اصلی بیشترین شانس موفقیت را در بازار آفریقا دارند:
+۱. صنایع غذایی و کشاورزی:
+کشورهای آفریقایی به دلیل تغییرات اقلیمی و ضعف در صنایع فرآوری، واردکننده بزرگ مواد غذایی هستند. کالاهای ایرانی با کیفیت بالا و قیمت رقابتی شامل موارد زیر هستند:
+- ماکارونی و پاستا: به دلیل ماندگاری بالا و قیمت ارزان، تقاضای میلیاردی در آفریقا دارد.
+- رب گوجه‌فرنگی: بسته‌بندی‌های قوطی و اسپتیک ایرانی محبوبیت زیادی دارند.
+- بیسکویت و شکلات: تنوع و کیفیت برندهای ایرانی کاملاً توانایی رقابت با برندهای ترکیه را دارد.
+- محصولات خشکبار: خرما (به‌ویژه مضافتی و زاهدی) و کشمش در فصول خاص و ماه رمضان تقاضای شدیدی دارند.
+۲. مصالح ساختمانی و لوازم خانگی:
+نهضت ساخت‌وساز و توسعه زیرساخت‌ها در آفریقا، نیاز مبرمی به مصالح ایجاد کرده است:
+- کاشی و سرامیک: لزوم ارایه طرح‌های مدرن و بسته‌بندی محکم برای دوام در حمل دریایی طولانی.
+- سیمان و کلینکر: به صورت فله یا کیسه‌ای برای پروژه‌های عمرانی بزرگ.
+- لوله‌های پلیمری و اتصالات: برای توسعه شبکه‌های آبرسانی شهری و کشارزی.
+- شیرآلات بهداشتی: محصولاتی با طراحی زیبا و قیمت متوسط به سرعت بازار را جذب می‌کنند.
+۳. محصولات شیمیایی و پتروشیمی:
+- قیر: در گریدهای مختلف برای راه‌سازی که عمده‌ترین محموله‌های صادراتی ایران به آفریقا را تشکیل می‌دهد.
+- کودهای شیمیایی: اوره و فسفات برای بخش کشاورزی آفریقا حیاتی هستند.
+- محصولات پلاستیکی و ملامین: ظروف و لوازم خانگی پلاستیکی ارزان‌قیمت.
+۴. دارو و تجهیزات پزشکی:
+آفریقا بازار بزرگی برای داروهای ژنریک، سرنگ، ارتوپدی و تجهیزات مصرفی بیمارستانی است. ثبت دارو در وزارتخانه‌های بهداشت کشورهای هدف (مانند غنا یا کنیا) فرآیندی زمان‌بر اما بسیار سودآور است.
+فصل چهارم: قوانين و مقررات صادرات از ايران
+برای شروع فرآیند صادرات، بازرگان باید مراحل قانونی را در داخل کشور به طور کامل و دقیق طی کند. نقص در مدارک داخلی می‌تواند منجر به توقیف کالا در گمرک خروجی و تحمیل هزینه‌های سنگین دموراج شود.
+۱. اخذ و تمدید کارت بازرگانی:
+کارت بازرگانی باید به نام شخص حقیقی یا حقوقی صادر شده و در سامانه جامع تجارت (ntsw.ir) ثبت و فعال باشد. رشته فعالیت کارت باید با کالای صادراتی همخوانی داشته باشد.
+۲. فرآیند ثبت نام و ارزیابی کالا در سامانه جامع تجارت:
+بازرگان موظف است مشخصات دقیق محموله، ارزش گمرکی (بر اساس ارزش‌های پایه صادراتی اعلام شده توسط گمرک) و کشور مقصد را در سامانه اظهار کند. در این مرحله، کد رهگیری صادراتی صادر می‌شود.
+۳. اخذ مجوزهای بهداشتی و استاندارد:
+- برای مواد غذایی و دارویی: اخذ گواهی بهداشت نباتی یا انسانی از سازمان غذا و دارو و سازمان دامپزشکی.
+- گواهی مبدأ: صادر شده توسط اتاق بازرگانی، صنایع، معادن و کشاورزی ایران که اصالت ایرانی کالا را تایید می‌کند.
+- فاکتور تجاری (Commercial Invoice) و لیست عدل‌بندی (Packing List) به زبان انگلیسی.
+۴. قوانین بازگشت ارز حاصل از صادرات (تعهد ارزی):
+طبق قوانین بانک مرکزی ایران، صادرکنندگان موظفند ارز حاصل از فروش کالا را ظرف مدت تعیین‌شده (معمولاً چند ماه) از طریق سامانه‌های رسمی مانند نیما عرضه کنند یا از طریق واردات خود یا واگذاری امتیاز ارز به غیر، رفع تعهد کنند. عدم رفع تعهد ارزی منجر به تعلیق کارت بازرگانی و جریمه‌های قانونی می‌شود. برای بازار آفریقا به دلیل نبود کانال‌های بانکی مستقیم، راه‌حل‌های قانونی مانند تهاتر یا استفاده از صرافی‌های معتمد پیش‌بینی شده است.
+فصل پنجم: مقررات واردات در كشورهاى آفريقايى
+بزرگ‌ترین اشتباه صادرکنندگان، ارسال کالا بدون هماهنگی با قوانین گمرکی کشور مقصد است. هر کشور در آفریقا تعرفه‌ها و استانداردهای خاص خود را دارد.
+۱. گواهی انطباق استاندارد (CoC - Certificate of Conformity):
+بسیاری از کشورهای آفریقایی برای جلوگیری از ورود کالاهای بی‌کیفیت، اجرای برنامه‌های ارزیابی انطباق پیش از ارسال (PVoC) را اجباری کرده‌اند. به عنوان مثال، کنیا (توسط سازمان KEBS) و نیجریه (توسط سازمان SONCAP) این گواهی را می‌خواهند. بازرگان باید محموله خود را در ایران یا در بازرسی‌های بین‌المللی (مانند SGS یا Cotecna) آزمایش کرده و گواهی CoC را دریافت کند. بدون این گواهی، کالا در بندر مقصد تخلیه نشده یا مرجوع می‌شود.
+۲. تعرفه‌های گمرکی و موافقت‌نامه‌های منطقه‌ای:
+- کادنا (COMESA) و اکوواس (ECOWAS): موافقت‌نامه‌های تجاری منطقه‌ای در آفریقا هستند که تعرفه گمرکی بین کشورهای عضو را به شدت کاهش می‌دهند یا صفر می‌کنند. صادرکننده ایرانی باید بداند که اگر کالا را به کنیا وارد کند و عوارض را بپردازد، می‌تواند آن را با تعرفه بسیار پایین به اوگاندا صادر کند.
+- منطقه تجارت آزاد قاره آفریقا (AfCFTA): این پیمان جدید در حال یکپارچه‌سازی کل قاره است و در آینده تجارت درون‌آفریقایی را دگرگون خواهد کرد.
+۳. برچسب‌گذاری و بسته‌بندی (Labelling):
+بسته‌بندی باید متناسب با آب و هوای گرم و مرطوب آفریقا باشد. اطلاعات روی بسته شامل تاریخ تولید و انقضا، ترکیبات و هشدارهای بهداشتی باید به زبان رسمی کشور مقصد (انگلیسی در شرق و جنوب، فرانسوی در غرب) درج شود. برای مواد غذایی، داشتن گواهی حلال برای برخی مناطق الزامی است.
+فصل ششم: نكات كليدى در قراردادهاى صادراتى
+قرارداد صادراتی، سند اصلی حفظ منافع شما در تجارت بین‌الملل است. به دلیل دوری مسافت و سخت بودن پیگیری‌های حقوقی در آفریقا، قرارداد باید هیچ‌گونه ابهامی نداشته باشد.
+۱. تعیین دقیق اینکوترمز (Incoterms 2020):
+شرایط تحویل کالا باید کاملاً مشخص باشد. برای شروع کار با خریداران آفریقایی، روش‌های CFR (تحویل در بندر مقصد با پرداخت هزینه حمل توسط فروشنده) یا FOB (تحویل روی عرشه کشتی در بندر مبدأ) توصیه می‌شود. روش DDP (تحویل در انبار خریدار در مقصد با پرداخت تمام عوارض توسط فروشنده) به دلیل پیچیدگی‌های گمرکی داخلی آفریقا به هیچ وجه برای تجار ایرانی توصیه نمی‌شود.
+۲. روش‌های پرداخت و تضمین مالی:
+به دلیل ریسک‌های بالای تجاری، هرگز نباید کالا را بدون دریافت پیش‌پرداخت یا تضمین معتبر ارسال کرد. روش‌های رایج شامل:
+- T/T (حواله تلگرافی): دریافت ۳۰ تا ۵۰ درصد به عنوان پیش‌پرداخت قبل از تولید و تسویه مابقی مبالغ در مقابل ارایه کپی اسناد حمل (برات یا Bill of Lading).
+- اعتبار اسنادی (L/C): گشایش ال‌سی از طریق بانک‌های درجه یک آفریقایی با واسطه‌گری بانک‌های مستقر در دبی یا عمان.
+۳. شرط فورس ماژور و حل اختلاف:
+در بخش حل اختلاف (Dispute Resolution)، حتماً باید بند حکمیت یا داوری گنجانه شود. ارجاع اختلافات به اتاق بازرگانی بین‌المللی (ICC) یا داوری در یک کشور ثالث (مانند عمان یا امارات) روشی استاندارد است. دادگاه‌های محلی در برخی کشورهای آفریقایی فرآیندی بسیار طولانی و گاهی همراه با سوءگیری دارند.
+فصل هفتم: بازاريابى و يافتن مشترى در آفريقا
+روش‌های بازاریابی سنتی مانند ارسال ایمیل انبوه در آفریقا کارایی ندارند. تجارت در این قاره بر پایه رابطه، اعتماد متقابل و شناخت حضوری استوار است.
+۱. حضور در نمایشگاه‌های بین‌المللی تخصصی:
+نمایشگاه‌های بزرگی مانند "نمایشگاه بین‌المللی بازرگانی کنیا" یا نمایشگاه‌های دبی که تجار آفریقایی فراوانی در آن‌ها شرکت می‌کنند، بهترین محل برای ملاقات با خریداران واقعی است. نمونه کالا (Sample) باید در نمایشگاه در معرض دید قرار گیرد.
+۲. سفرهای تجاری و مذاکرات حضوری:
+تاجر آفریقایی تمایل دارد با کسی کار کند که سرمایه و زمان خود را صرف سفر به کشور او کرده است. جلسات حضوری در دفاتر تجاری یا اتاق‌های بازرگانی محلی، ضریب موفقیت قراردادها را تا ۸۰ درصد افزایش می‌دهد.
+۳. استفاده از پلتفرم‌های دیجیتال و شبکه‌های اجتماعی:
+- لینکدین (LinkedIn): ابزاری فوق‌العاده برای پیدا کردن مدیران خرید، شرکت‌های پخش و تامین‌کنندگان در آفریقا. با جستجوی دقیق کلیدواژه‌ها می‌توان با تصمیم‌گیرندگان اصلی ارتباط برقرار کرد.
+- واتس‌اپ (WhatsApp): اصلی‌ترین و حیاتی‌ترین ابزار ارتباطی روزمره تجار در سراسر آفریقا است. پاسخگویی سریع، ارسال کاتالوگ‌های کم‌حجم و ویدیوهای واقعی از خط تولید و بارگیری کالا در واتس‌اپ، اعتماد خریدار را جلب می‌کند.
+۴. دفاتر مشاوره بازرگانی و رایزنان تجاری:
+همکاری با سازمان توسعه تجارت ایران و سفارتخانه‌های ایران در کشورهای مقصد برای استعلام اصالت و اعتبار شرکت‌های آفریقایی پیش از عقد قرارداد.
+فصل هشتم: تامين مالى و مسائل بانكى در صادرات به آفريقا
+سیستم بانکی در آفریقا ترکیبی از بانک‌های بین‌المللی پیشرفته (مانند Standard Chartered و Barclays) و بانک‌های محلی است. با این حال، به دلیل تحریم‌های یک‌جانبه علیه سیستم بانکی ایران، انتقال مستقیم پول بین بانک‌های ایرانی و آفریقایی امکان‌پذیر نیست. این بخش راه‌حل‌های عملیاتی برای حل این مشکل بزرگ را تشریح می‌کند.
+۱. صرافی‌های واسط در کشورهای ثالث:
+رایج‌ترین روش پرداخت در حال حاضر، استفاده از شرکت‌های تراستی و صرافی‌های معتبر در دبی، مسقط، یا استانبول است. خریدار آفریقایی ارز (دلار یا یورو) را به حساب معرفی‌شده توسط صرافی ایرانی در دبی واریز می‌کند و صادرکننده معادل ریالی یا ارزی آن را در ایران دریافت می‌نماید. هزینه کارمزد این نقل و انتقال باید در قیمت‌گذاری اولیه کالا لحاظ شود.
+۲. ال‌سی واسطه‌ای (Back-to-Back L/C):
+اگر خریدار آفریقایی اصرار بر استفاده از اعتبار اسنادی (L/C) داشته باشد، صادرکننده ایرانی می‌تواند از طریق یک شرکت ثبت‌شده در عمان یا امارات، ال‌سی را دریافت کرده و سپس از طریق بانک‌های آن کشورها، اسناد حمل را معامله کند.
+۳. مکانیسم تهاتر (Barter Trade):
+یکی از استراتژیک‌ترین روش‌ها برای حفظ تداوم تجارت. آفریقا سرشار از منابع طبیعی، سنگ‌های معدنی، چوب، چای، کاکائو و قهوه است. شرکت ایرانی می‌تواند کالای خود (مثلاً مصالح ساختمانی) را صادر کرده و در مقابل، مواد اولیه مورد نیاز صنایع کشور را وارد کند، بدون اینکه ارزی جابجا شود.
+۴. استفاده از ارزهای دیجیتال و تتر (USDT):
+این روش به سرعت در میان تجار جوان آفریقایی (به‌ویژه در نیجریه و کنیا) در حال گسترش است. سرعت بالا و کارمزد ناچیز از مزایای آن است، اما باید قوانین داخلی کشور مقصد و ایران در خصوص دارایی‌های دیجیتال کاملاً رعایت شود تا مشکلی در رفع تعهد ارزی ایجاد نشود.
+فصل نهم: اقتصاد زنده در قلب آفریقا: آشنایی با کنیا و ساحل عاج برای صادرات از ایران
+در این فصل، دو بازار کلیدی شرق و غرب آفریقا به صورت میکروسکوپی بررسی می‌شوند تا صادرکننده دید دقیقی از ساختار بازار آن‌ها داشته باشد.
+جمهوری کنیا:
+پایتخت آن نایروبی، قطب مالی و لجستیکی شرق آفریقا است. واحد پول آن شیلینگ کنیا (KES) است. اقتصاد کنیا به شدت تحت تاثیر بخش کشاورزی (چای و گل) و گردشگری است.
+- ساختار بازار: سیستم توزیع کالا در کنیا بسیار توسعه‌یافته است. زنجیره‌های بزرگ فروشگاهی مدرن در کنار بازارهای سنتی فعالیت می‌کنند.
+- دسترسی به بندر: بندر مومباسا از طریق خط آهن مدرن (SGR) به نایروبی متصل است که زمان و هزینه حمل داخلی کالا را کاهش داده است.
+- فرصت ویژه: نیاز شدید به قیر ایرانی برای توسعه شاهراه‌های ترانزیتی به سمت اوگاندا.
+جمهوری ساحل عاج:
+پایتخت سیاسی آن یاموسوکرو و پایتخت اقتصادی و اصلی آن آبیجان است. واحد پول آن فرانک سی‌اف‌آی غرب آفریقا (XOF) است که به یورو متصل بوده و از ثبات بالایی برخوردار است.
+- ساختار بازار: بازار ساحل عاج به شدت تحت تاثیر قوانین و فرهنگ فرانسوی است. داشتن کاتالوگ و مکاتبات به زبان فرانسوی برای موفقیت در این بازار کاملاً الزامی است.
+- دسترسی به بندر: بندر آبیجان دارای اسکله‌های عمیق برای پهلوگیری بزرگ‌ترین کشتی‌های کانتینری جهان است.
+- فرصت ویژه: بازار بسیار بزرگ برای کودهای شیمیایی، صنایع پلاستیک و مواد غذایی فرآوری‌شده ایرانی مانند رب و ماکارونی.
+فصل دهم: از زبان تاجران ایرانی: چالش‌های صادرات به آفریقا
+تجارت واقعی در میدان عمل با تئوری‌های کتاب‌های دانشگاهی متفاوت است. تجار باسابقه ایرانی که سال‌ها در بازار آفریقا فعالیت کرده‌اند، چالش‌های زیر را به عنوان تجربیات گران‌بها مطرح می‌کنند:
+۱. معضل حمل و نقل و لجستیک دریایی:
+بزرگ‌ترین مانع فیزیکی، نبود خط کشتیرانی مستقیم منظم از بنادر ایران (مانند بندرعباس) به بنادر اصلی آفریقا است. محموله‌ها معمولاً باید در بنادر جبل علی (امارات) یا صحار (عمان) تخلیه و بارگیری مجدد (Transshipment) شوند. این امر زمان حمل را به ۴0 تا ۶0 روز افزایش داده و هزینه کرایه کانتینر (Freight Rate) را بالا می‌برد. صادرکننده باید نوسانات قیمت کرایه حمل و هزینه‌های دموراج کانتینر را دقیقاً محاسبه کند.
+۲. ریسک کلاهبرداری‌های تجاری:
+در برخی بازارهای آفریقایی، شرکت‌های صوری با ارایه وب‌سایت‌های شکیل و اسناد جعلی، اقدام به سفارش کالا با شرایط پرداخت مدت‌دار می‌کنند. تاجران باسابقه تاکید می‌کنند: هرگز قبل از دریافت پیش‌پرداخت نقدی، کالایی را تولید یا بارگیری نکنید و فریب وعده‌های حجم خرید بالا را نخورید.
+۳. عدم ثبات نرخ ارزهای محلی:
+برخی کشورها مانند نیجریه با افت شدید ارزش پول ملی در برابر دلار مواجه می‌شوند. این امر باعث می‌شود خریدار محلی در تامین دلار برای تسویه حساب با شما دچار مشکل شود. قراردادها حتماً باید بر پایه ارزهای معتبر (دلار یا یورو) تنظیم شوند.
+فصل یازدهم: پارک فناوری اطلاعات کنیا (پارک تجار ایران و آفریقا)
+یکی از ارزشمندترین زیرساخت‌های ایجاد شده برای تسهیل ورود شرکت‌های ایرانی به بازار شرق آفریقا، "مرکز نوآوری و فناوری ایران" (iHiT) در قلب شهر نایروبی است. این مرکز که با حمایت معاونت علمی و فناوری ریاست جمهوری ایران راه‌اندازی شده، به عنوان یک شتاب‌دهنده و پایگاه صادراتی عمل می‌کند.
+خدمات و امکانات پارک فناوری برای بازرگانان:
+- فضای کار اشتراکی و دفاتر اختصاصی: صادرکنندگان ایرانی می‌توانند بدون نیاز به صرف هزینه‌های سنگین اجاره ملک در نایروبی، از امکانات اداری و اتاق‌های جلسات این مرکز برای ملاقات با مشتریان خود استفاده کنند.
+- نمایشگاه دائمی کالا (Showroom): امکان نمایش نمونه محصولات ایرانی (دارو، تجهیزات پزشکی، محصولات دانش‌بنیان، مصالح ساختمانی) به بازرگانان و مقامات دولتی کنیا.
+- خدمات ثبت شرکت و پشتیبانی حقوقی: کمک به تاجران برای ثبت قانونی شرکت در کنیا، افتتاح حساب بانکی محلی، اخذ ویزای تجاری و مشاوره در خصوص قوانین مالیاتی کنیا.
+- بازاریابی و پایش بازار: تیم‌های مستقر در مرکز به صورت مداوم مناقصات دولتی و نیازهای بازار شرق آفریقا را رصد کرده و در اختیار شرکت‌های عضو قرار می‌دهند. این مرکز یک سکوی پرتاب امن برای کاهش ریسک‌های اولیه ورود به قاره است.
+فصل دوازدهم: اطلاعات پایه برای شناخت بیشتر مردم آفریقا، حمل و نقل و بررسی شهرک‌های صنعتی
+برای موفقیت بلندمدت در آفریقا، باید فراتر از تجارت، به شناخت فرهنگی، ساختار اجتماعی و جغرافیا پرداخت.
+۱. شناخت فرهنگی و روانشناسی بازار:
+مردم آفریقا بسیار خون‌گرم، محترم و خانواده‌دوست هستند. رابطه انسانی مقدم بر رابطه کاری است. در مذاکرات هرگز عجله نکنید؛ اصرار بیش از حد برای امضای سریع قرارداد، حس بی‌اعتمادی ایجاد می‌کند. به آداب و رسوم، اعیاد مذهبی (مانند عید فطر در مناطق مسلمان‌نشین) و ارزش‌های محلی احترام بگذارید. تفاوت‌های مذهبی و قومی در آفریقا بسیار حساس هستند و بازرگان باید کاملاً بی‌طرف عمل کند.
+۲. وضعیت زیرساخت‌های حمل و نقل داخلی:
+پس از تخلیه کالا در بنادر (مومباسا، آبیجان، لاگوس)، حمل داخلی کالا به سمت پایتخت‌ها یا کشورهای محصور در خشکی چالش دیگری است. جاده‌ها در برخی مناطق کیفیت پایینی دارند و حمل جاده‌ای ممکن است زمان‌بر و همراه با ریسک آسیب به کالا باشد. شناخت خطوط ریلی فعال (مانند راه‌آهن نایروبی-مومباسا) به شدت به کاهش هزینه‌ها کمک می‌کند.
+۳. بررسی شهرک‌های صنعتی و مناطق آزاد (کاهش هزینه‌ها):
+بسیاری از کشورهای آفریقایی برای جذب سرمایه‌گذاری خارجی، مناطق ویژه اقتصادی (SEZ) و مناطق پردازش صادرات (EPZ) ایجاد کرده‌اند. این مناطق معافیت‌های مالیاتی ۱۰ تا ۲۰ ساله، معافیت از پرداخت حقوق ورودی ماشین‌آلات و تسهیل در انتقال سود به خارج از کشور را ارایه می‌دهند. صادرکننده ایرانی در مراحل پیشرفته کار می‌تواند به جای ارسال کالای نهایی، مواد اولیه یا قطعات را به این مناطق ارسال کرده و عملیات بسته‌بندی نهایی یا مونتاژ (CKD/SKD) را در آنجا انجام دهد تا از تعرفه‌های صفر درصد منطقه‌ای بهره‌مند شود.
+فصل سیزدهم: تجربه شخصی سیما خورشیدیان در صادرات به آفریقا
+این فصل به بازخوانی تجربیات عینی، چالش‌ها، شکست‌ها و در نهایت موفقیت‌های من در مسیر صادرات کالا از ایران به قلب آفریقا می‌پردازد. این بخش، اصول تئوری فصل‌های گذشته را در قالب یک داستان واقعی و کاربردی به تصویر می‌کشد.
+شروع مسیر از اصفهان:
+فعالیت من با تمرکز بر پتانسیل‌های صادراتی استان اصفهان آغاز شد. اصفهان به عنوان یکی از قطب‌های صنعتی و کشاورزی ایران، دسترسی عالی به مصالح ساختمانی باکیفیت (کاشی و سرامیک) و محصولات کشاورزی فرآوری‌شده دارد. پس از ماه‌ها تحقیق و مطالعه بازار، متوجه شدم که بازار شرق آفریقا، به‌ویژه کشور کنیا، تشنه واردات مواد غذایی باکیفیت و مصالح ساختمانی قیمت‌مناسب است.
+اولین گام: بازاریابی حضوری و جلب اعتماد در نایروبی:
+با وجود تمام هشدارهای منفی پیرامون ریسک‌های بازار آفریقا، تصمیم گرفتم به صورت حضوری به نایروبی سفر کنم. با استقرار در مرکز فناوری ایران (iHiT)، نمونه‌های خرمای مضافتی، زعفران و برخی نمونه‌های کاشی را به نمایش گذاشتم. در ابتدا، تجار محلی به دلیل عدم شناخت کافی از برندهای ایرانی، تمایلی به خرید نداشتند. کلید موفقیت من، صبر و تمرکز بر ارتباطات انسانی بود. با دعوت از مدیران چند شرکت بزرگ توزیع‌کننده به مرکز و ارایه تست‌های چشایی محصولات غذایی، توانستم اولین قرارداد صادرات خرمای مضافتی را منعکس کنم.
+درس‌های بزرگ در حوزه لجستیک و بسته‌بندی:
+در اولین محموله ارسالی، با چالش گرمای شدید بندر مومباسا و معطلی گمرکی مواجه شدم. عدم استفاده از کانتینرهای یخچال‌دار (Reefer Container) در پارت اول، آسیب جزیی به کیفیت خرماها وارد کرد. این تجربه به من آموخت که در صادرات مواد غذایی به آفریقا، هرگز نباید در هزینه حمل و نقل استاندارد صرفه‌جویی کرد. در پارت‌های بعدی با ارتقای کیفیت بسته‌بندی و استفاده از کارتن‌های پنج‌لایه مقاوم در برابر رطوبت و هماهنگی دقیق با خطوط کشتیرانی واسط در دبی، محموله‌ها را به سلامت و با بالاترین کیفیت به انبار خریدار در نایروبی رساندم.
+نتیجه‌گیری راهبردی:
+سفر صادرات از ایران به آفریقا برای من پر از چالش، تعلیق و یادگیری بود. اما این مسیر ثابت کرد که با داشتن دانش گمرکی، قراردادهای محکم، پشتکار و شناخت دقیق فرهنگ مردم آفریقا، می‌توان از سد تحریم‌ها و مشکلات لجستیکی عبور کرد و به سودآوری پایدار رسید. آفریقا اقیانوسی از فرصت‌هاست، به شرط آنکه با چشمانی باز و برنامه‌ریزی استراتژیک وارد آن شوید.`;
+
+const deck = document.getElementById("deck");
+let currentSlide = 0;
+
+const chapterVisuals = [
+  ["🌍","📈","🚢","🤝"],
+  ["🧭","🇰🇪","🇨🇮","🇳🇬"],
+  ["🍝","🏗️","🛢️","💊"],
+  ["📄","🏛️","✅","💱"],
+  ["🛃","📦","🏷️","🌐"],
+  ["✍️","⚓","💳","⚖️"],
+  ["🎪","✈️","📱","🔎"],
+  ["🏦","💸","🔁","₮"],
+  ["🇰🇪","🚆","🇨🇮","⚓"],
+  ["🚢","⚠️","💵","🧮"],
+  ["🏢","🧪","🖥️","🚀"],
+  ["👥","🛣️","🏭","🌱"],
+  ["📍","🌴","📦","🏆"]
+];
+
+const themeNames = [
+  "فرصت‌ها، مزایا، چالش‌ها و آینده‌نگری راهبردی",
+  "شناخت بازار و انتخاب کشورهای اولویت‌دار",
+  "سبد کالاهای مناسب برای صادرات",
+  "قوانین و مقررات صادرات از ایران",
+  "مقررات واردات در کشورهای آفریقایی",
+  "نکات کلیدی قراردادهای صادراتی",
+  "بازاریابی و یافتن مشتری",
+  "تأمین مالی و مسائل بانکی",
+  "کنیا و ساحل عاج؛ دو بازار کلیدی",
+  "چالش‌های واقعی از زبان تاجران",
+  "پارک فناوری اطلاعات کنیا",
+  "شناخت فرهنگی، حمل‌ونقل و مناطق صنعتی",
+  "تجربه شخصی سیما خورشیدیان"
+];
+
+function escapeHTML(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function faNumber(num){
+  return String(num).replace(/\d/g, d => "۰۱۲۳۴۵۶۷۸۹"[d]);
+}
+
+function splitBookIntoChapters(text){
+  const matches = text.match(/فصل\s+[^\n]+(?:\n[\s\S]*?)(?=\nفصل\s+|$)/g) || [];
+  return matches.map((chapter, index) => {
+    const lines = chapter.trim().split("\n");
+    const title = lines[0].trim();
+    const body = lines.slice(1).join("\n").trim();
+    return {
+      index: index + 1,
+      title,
+      body
+    };
+  });
+}
+
+function chunkChapterBody(body, maxChars = 1350){
+  const lines = body.split("\n").map(x => x.trim()).filter(Boolean);
+  const chunks = [];
+  let buffer = "";
+
+  lines.forEach(line => {
+    if ((buffer + "\n" + line).length > maxChars && buffer.trim().length > 0) {
+      chunks.push(buffer.trim());
+      buffer = line;
+    } else {
+      buffer += (buffer ? "\n" : "") + line;
+    }
+  });
+
+  if (buffer.trim()) chunks.push(buffer.trim());
+  return chunks;
+}
+
+function paragraphsToHTML(text){
+  return text.split("\n").map(line => {
+    const safe = escapeHTML(line.trim());
+    if (!safe) return "";
+    if (safe.startsWith("- ")) {
+      return `<span class="line">• ${safe.slice(2)}</span>`;
+    }
+    if (/^[۰-۹0-9]+\./.test(safe) || /^[۰-۹0-9]+/.test(safe)) {
+      return `<span class="line"><b>${safe}</b></span>`;
+    }
+    if (safe.endsWith(":") || safe.endsWith("):")) {
+      return `<p><b style="color:#fde68a">${safe}</b></p>`;
+    }
+    return `<p>${safe}</p>`;
+  }).join("");
+}
+
+function makeCoverSlide(){
+  return `
+  <section class="slide cover active" data-title="جلد">
+    <div class="slide-inner">
+      <div>
+        <div class="kicker">🌍 راهنمای جامع، کاربردی و آموزشی</div>
+        <h1>صادرات به آفریقا</h1>
+        <p class="subtitle">
+          فرصت‌ها، قوانین، بازارهای هدف، روش‌های بازاریابی، تأمین مالی، لجستیک و تجربه واقعی ورود به بازار آفریقا
+        </p>
+        <div class="author">
+          <span style="font-size:34px">👩‍💼</span>
+          <div>
+            <b>نویسنده و مدرس: سیما خورشیدیان</b>
+            <small style="display:block;color:#cbd5e1;margin-top:4px">جزوه آموزشی ویژه کلاس‌های صادرات و تجارت بین‌الملل</small>
+          </div>
+        </div>
+      </div>
+      <div class="visual"></div>
+    </div>
+  </section>`;
+}
+
+function makeAgendaSlide(chapters){
+  const rows = chapters.map((ch, i) => `
+    <div class="agenda-item">
+      <span>${faNumber(i + 1)}</span>
+      <b>${escapeHTML(ch.title)}</b>
+    </div>
+  `).join("");
+
+  return `
+  <section class="slide content layout-2" data-title="فهرست">
+    <div class="slide-inner">
+      <div class="content-head">
+        <h2>نقشه راه دوره آموزشی</h2>
+        <div class="badge">۱۳ فصل کاربردی</div>
+      </div>
+      <div class="textbox agenda-box">
+        <style>
+          .agenda-box{
+            display:grid;
+            grid-template-columns:repeat(2,minmax(0,1fr));
+            gap:14px;
+            align-content:start;
+            font-size:17px;
+            line-height:1.8;
+          }
+          .agenda-item{
+            background:rgba(255,255,255,.08);
+            border:1px solid rgba(255,255,255,.13);
+            border-radius:18px;
+            padding:13px 14px;
+            display:flex;
+            gap:12px;
+            align-items:flex-start;
+          }
+          .agenda-item span{
+            flex:0 0 34px;
+            width:34px;
+            height:34px;
+            border-radius:50%;
+            display:grid;
+            place-items:center;
+            background:linear-gradient(135deg,#fde68a,#f59e0b);
+            color:#111;
+            font-weight:950;
+          }
+        </style>
+        ${rows}
+      </div>
+      <div class="footer">
+        <span>صادرات به آفریقا | سیما خورشیدیان</span>
+        <div class="progress"><span></span></div>
+        <span>فهرست دوره</span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function makeChapterIntro(chapter, visualSet){
+  const icons = visualSet.map(v => `<div class="icon-tile">${v}</div>`).join("");
+  const theme = themeNames[chapter.index - 1] || "درس تخصصی صادرات";
+  const layout = `layout-${(chapter.index % 5) + 1}`;
+
+  return `
+  <section class="slide chapter ${layout}" data-title="${escapeHTML(chapter.title)}">
+    <div class="slide-inner">
+      <div class="chapter-card">
+        <div>
+          <div class="big-num">${faNumber(chapter.index)}</div>
+          <div class="badge" style="display:inline-flex;margin:12px 0 18px">فصل ${faNumber(chapter.index)}</div>
+          <div class="chapter-title">${escapeHTML(chapter.title)}</div>
+        </div>
+        <p class="subtitle" style="font-size:20px">${escapeHTML(theme)}</p>
+      </div>
+      <div class="icon-wall">${icons}</div>
+    </div>
+  </section>`;
+}
+
+function makeContentSlide(chapter, chunk, part, totalParts, globalIndex){
+  const layout = `layout-${(globalIndex % 5) + 1}`;
+  const titleShort = chapter.title.replace(/^فصل\s+[^\:]+:\s*/,"");
+
+  return `
+  <section class="slide content ${layout}" data-title="${escapeHTML(chapter.title)} - بخش ${faNumber(part)}">
+    <div class="slide-inner">
+      <div class="content-head">
+        <div>
+          <h2>${escapeHTML(titleShort)}</h2>
+          <h3>فصل ${faNumber(chapter.index)} | بخش ${faNumber(part)} از ${faNumber(totalParts)}</h3>
+        </div>
+        <div class="badge">متن کامل کتاب</div>
+      </div>
+      <div class="textbox">
+        ${paragraphsToHTML(chunk)}
+      </div>
+      <div class="footer">
+        <span>صادرات به آفریقا | سیما خورشیدیان</span>
+        <div class="progress"><span></span></div>
+        <span>اسلاید <span class="slide-no"></span></span>
+      </div>
+    </div>
+  </section>`;
+}
+
+function makeFinalSlide(){
+  return `
+  <section class="slide cover layout-5" data-title="پایان">
+    <div class="slide-inner">
+      <div>
+        <div class="kicker">🚀 جمع‌بندی نهایی</div>
+        <h1>آفریقا اقیانوسی از فرصت‌هاست</h1>
+        <p class="subtitle">
+          موفقیت در صادرات به آفریقا با نگاه استراتژیک، شناخت فرهنگی، قرارداد محکم، لجستیک دقیق، بازاریابی حضوری و اعتمادسازی پایدار ممکن می‌شود.
+        </p>
+        <div class="author">
+          <span style="font-size:34px">🏆</span>
+          <div>
+            <b>سیما خورشیدیان</b>
+            <small style="display:block;color:#cbd5e1;margin-top:4px">پایان جزوه آموزشی صادرات به آفریقا</small>
+          </div>
+        </div>
+      </div>
+      <div class="visual" style="background:
+        radial-gradient(circle at 24% 22%,#facc15,transparent 18%),
+        radial-gradient(circle at 72% 28%,#14b8a6,transparent 18%),
+        radial-gradient(circle at 58% 74%,#f97316,transparent 20%),
+        linear-gradient(135deg,#020617,#14532d,#7f1d1d);"></div>
+    </div>
+  </section>`;
+}
+
+function renderDeck(){
+  const chapters = splitBookIntoChapters(BOOK_TEXT);
+  let html = "";
+  let globalIndex = 0;
+
+  html += makeCoverSlide();
+  html += makeAgendaSlide(chapters);
+
+  chapters.forEach((chapter, idx) => {
+    html += makeChapterIntro(chapter, chapterVisuals[idx] || ["🌍","🚢","📦","🤝"]);
+    const chunks = chunkChapterBody(chapter.body, 1350);
+    chunks.forEach((chunk, partIndex) => {
+      globalIndex++;
+      html += makeContentSlide(chapter, chunk, partIndex + 1, chunks.length, globalIndex);
+    });
+  });
+
+  html += makeFinalSlide();
+  deck.innerHTML = html;
+  updateSlides();
+}
+
+function getSlides(){
+  return Array.from(document.querySelectorAll(".slide"));
+}
+
+function updateSlides(){
+  const slides = getSlides();
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === currentSlide);
+    const no = slide.querySelector(".slide-no");
+    if (no) no.textContent = `${faNumber(i + 1)} از ${faNumber(slides.length)}`;
+    const progress = slide.querySelector(".progress span");
+    if (progress) progress.style.width = `${((i + 1) / slides.length) * 100}%`;
+  });
+}
+
+function nextSlide(){
+  const slides = getSlides();
+  currentSlide = Math.min(currentSlide + 1, slides.length - 1);
+  updateSlides();
+}
+
+function prevSlide(){
+  currentSlide = Math.max(currentSlide - 1, 0);
+  updateSlides();
+}
+
+function toggleHandout(){
+  document.documentElement.classList.toggle("handout");
+  document.body.classList.toggle("handout");
+}
+
+document.addEventListener("keydown", function(e){
+  if (e.key === "ArrowRight" || e.key === "PageUp") prevSlide();
+  if (e.key === "ArrowLeft" || e.key === "PageDown" || e.key === " ") nextSlide();
+  if (e.key === "Home") { currentSlide = 0; updateSlides(); }
+  if (e.key === "End") { currentSlide = getSlides().length - 1; updateSlides(); }
+});
+
+async function downloadPPTX(){
+  const slides = getSlides();
+  const pptx = new pptxgen();
+  pptx.layout = "LAYOUT_WIDE";
+  pptx.author = "سیما خورشیدیان";
+  pptx.subject = "صادرات به آفریقا";
+  pptx.title = "جزوه آموزشی صادرات به آفریقا";
+
+  const oldCurrent = currentSlide;
+  const wasHandout = document.body.classList.contains("handout");
+
+  if (wasHandout) {
+    document.body.classList.remove("handout");
+    document.documentElement.classList.remove("handout");
+  }
+
+  for (let i = 0; i < slides.length; i++){
+    currentSlide = i;
+    updateSlides();
+
+    await new Promise(resolve => setTimeout(resolve, 180));
+
+    const inner = slides[i].querySelector(".slide-inner");
+    const canvas = await html2canvas(inner, {
+      scale: 2,
+      backgroundColor: null,
+      useCORS: true,
+      logging: false
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pptSlide = pptx.addSlide();
+    pptSlide.background = { color: "050816" };
+    pptSlide.addImage({
+      data: imgData,
+      x: 0,
+      y: 0,
+      w: 13.333,
+      h: 7.5
+    });
+  }
+
+  currentSlide = oldCurrent;
+  updateSlides();
+
+  if (wasHandout) {
+    document.body.classList.add("handout");
+    document.documentElement.classList.add("handout");
+  }
+
+  await pptx.writeFile({ fileName: "Export-to-Africa-Sima-Khorshidian.pptx" });
+}
+
+renderDeck();
+</script>
+</body>
+</html>
