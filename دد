@@ -1422,3 +1422,196 @@ nt(135deg, #1a1a1a 0%, #2d2d2d 100%);
 
         // Keyboard navigation
         document.addEventListener('keydo
+
+wn', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (e.key === 'ArrowRight') {
+                    previousSlide(); // RTL
+                } else {
+                    nextSlide(); // RTL
+                }
+            }
+        });
+
+        // Download PowerPoint functionality
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a more comprehensive HTML content for conversion
+            const fullContent = document.documentElement.outerHTML;
+            
+            // Create blob
+            const blob = new Blob([fullContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create download link
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'صادرات-به-آفریقا-سیما-خورشیدیان.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show success message
+            alert('✅ فایل HTML آماده دانلود است!\n\nبرای تبدیل به PowerPoint:\n1. فایل HTML را در مرورگر باز کنید\n2. از Print to PDF استفاده کنید\n3. یا از ابزارهای آنلاین HTML to PPT استفاده کنید\n\nتوصیه: از سایت‌هایی مانند Slides.com یا Google Slides (Import) استفاده کنید.');
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and info boxes
+        document.querySelectorAll('.card, .info-box, .tip-card, .stat-box').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add click effect to all buttons
+        document.querySelectorAll('button, .nav-btn, .control-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Auto-play slideshow (optional - commented out)
+        // let autoPlayInterval;
+        // function startAutoPlay() {
+        //     autoPlayInterval = setInterval(() => {
+        //         if (currentSlide < totalSlides) {
+        //             nextSlide();
+        //         } else {
+        //             showSlide(1);
+        //         }
+        //     }, 10000); // 10 seconds
+        // }
+        // startAutoPlay();
+
+        // Progress indicator
+        function updateProgress() {
+            const progress = (currentSlide / totalSlides) * 100;
+            const progressBar = document.createElement('div');
+            progressBar.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: ${progress}%;
+                height: 4px;
+                background: linear-gradient(90deg, #d4af37, #4ecca3);
+                transition: width 0.3s ease;
+                z-index: 10000;
+            `;
+            progressBar.id = 'progressBar';
+            
+            const existingBar = document.getElementById('progressBar');
+            if (existingBar) {
+                existingBar.style.width = progress + '%';
+            } else {
+                document.body.appendChild(progressBar);
+            }
+        }
+
+        // Update progress on slide change
+        const originalShowSlide = showSlide;
+        showSlide = function(slideNumber) {
+            originalShowSlide(slideNumber);
+            updateProgress();
+        };
+
+        // Initialize progress bar
+        updateProgress();
+
+        // Add touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide(); // Swipe left = next (RTL)
+            }
+            if (touchEndX > touchStartX + 50) {
+                previousSlide(); // Swipe right = previous (RTL)
+            }
+        }
+
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            // Show all slides for printing
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById('slide' + i).style.display = 'block';
+            }
+        });
+
+        window.addEventListener('afterprint', function() {
+            // Restore normal view
+            for (let i = 1; i <= totalSlides; i++) {
+                if (i !== currentSlide) {
+                    document.getElementById('slide' + i).style.display = 'none';
+                }
+            }
+        });
+
+        // Add fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Add keyboard shortcut for fullscreen (F key)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
+            }
+        });
+
+        // Console welcome message
+        console.log('%c🌍 صادرات به آفریقا - سیما خورشیدیان', 'color: #d4af37; font-size: 20px; font-weight: bold;');
+        console.log('%cارائه تعاملی آموزشی | طراحی شده با ❤️', 'color: #4ecca3; font-size: 14px;');
+    </script>
+</body>
+</html>
