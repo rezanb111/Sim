@@ -725,3 +725,700 @@
         /* Footer */
         .footer {
             background: linear-gradie
+
+
+nt(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            text-align: center;
+            border-top: 4px solid #d4af37;
+            margin-top: 60px;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer h3 {
+            color: #d4af37;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .footer p {
+            color: #4ecca3;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .social-links a {
+            color: #d4af37;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #4ecca3;
+            transform: scale(1.2);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .header h2 {
+                font-size: 1.3em;
+            }
+            .header-image {
+                width: 150px;
+                height: 150px;
+            }
+            .card-title {
+                font-size: 1.8em;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav {
+                flex-direction: column;
+            }
+            .download-btn {
+                position: static;
+                margin: 20px auto;
+                display: flex;
+            }
+        }
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid #2d2d2d;
+            border-top: 8px solid #d4af37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Download Button -->
+    <a href="#" class="download-btn" id="downloadBtn">
+        <span>📥</span>
+        <span>دانلود PowerPoint</span>
+    </a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>صادرات به آفریقا</h1>
+                    <h2>🌍 راهنمای جامع بازارهای آفریقایی برای صادرکنندگان ایرانی</h2>
+                    <div class="author-badge">مدرس: سیما خورشیدیان</div>
+                </div>
+                <img src="https://github.com/rezanb111/Sim/raw/refs/heads/main/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B5%DB%B2%DB%B5_%DB%B1%DB%B7%DB%B5%DB%B0%DB%B3%DB%B5.png" 
+                     alt="سیما خورشیدیان" class="header-image">
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav">
+                <button class="nav-btn active" onclick="showSlide(1)">مقدمه</button>
+                <button class="nav-btn" onclick="showSlide(2)">بازارهای هدف</button>
+                <button class="nav-btn" onclick="showSlide(3)">کنیا</button>
+                <button class="nav-btn" onclick="showSlide(4)">ساحل عاج</button>
+                <button class="nav-btn" onclick="showSlide(5)">نیجریه</button>
+                <button class="nav-btn" onclick="showSlide(6)">آفریقای جنوبی</button>
+                <button class="nav-btn" onclick="showSlide(7)">نکات طلایی</button>
+                <button class="nav-btn" onclick="showSlide(8)">پرسش و پاسخ</button>
+            </div>
+        </div>
+
+        <!-- Slide 1: مقدمه -->
+        <div class="slide active" id="slide1">
+            <div class="card">
+                <div class="circular-note note-top-right">
+                    فرصت طلایی برای صادرکنندگان ایرانی
+                </div>
+                <h2 class="card-title">فصل اول: چرا صادرات به آفریقا؟</h2>
+                
+                <div class="quote-box">
+                    آفریقا قاره‌ای با ۱.۳ میلیارد نفر جمعیت و رشد اقتصادی بالاتر از میانگین جهانی است که ۷۰٪ کالاهای مصرفی خود را وارد می‌کند
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">1.3B</div>
+                        <div class="stat-label">جمعیت فعلی</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">2B</div>
+                        <div class="stat-label">جمعیت تا 2050</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">وابستگی به واردات</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">54</div>
+                        <div class="stat-label">تعداد کشورها</div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="info-box">
+                        <h3>🎯 فرصت‌های طلایی</h3>
+                        <p>رشد سریع طبقه متوسط، افزایش شهرنشینی و تقاضای روزافزون برای کالاهای اساسی، مصالح ساختمانی و خدمات فنی</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>💰 مزیت‌های رقابتی ایران</h3>
+                        <p>قیمت تمام‌شده پایین، کیفیت بالا، تنوع تولیدات صنعتی و دسترسی به منابع انرژی ارزان</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>⚠️ چالش‌های اصلی</h3>
+                        <p>نبود خطوط کشتیرانی مستقیم، پیچیدگی‌های مالی، کمبود اطلاعات بازار و رقابت شدید</p>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/rezanb111/Sim/refs/heads/main/NoteGPT_Image_20260529212850.png" alt="جلد کتاب">
+                        <div class="gallery-caption">راهنمای جامع صادرات به آفریقا</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/rezanb111/Sim/refs/heads/main/NoteGPT_Image_20260529212126.png" alt="نمودار بازار">
+                        <div class="gallery-caption">تحلیل بازارهای هدف</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: بازارهای هدف -->
+        <div class="slide" id="slide2">
+            <div class="card">
+                <div class="circular-note note-bottom-left">
+                    5 منطقه اصلی با ویژگی‌های متفاوت
+                </div>
+                <h2 class="card-title">فصل دوم: آشنایی با بازار آفریقا</h2>
+                
+                <div class="content-grid">
+                    <div class="info-box">
+                        <h3>🌍 شرق آفریقا</h3>
+                        <p>کنیا، اوگاندا، تانزانیا، رواندا - زبان تجاری: انگلیسی</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>🌍 غرب آفریقا</h3>
+                        <p>ساحل عاج، نیجریه، غنا، سنگال - زبان: فرانسوی/انگلیسی</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>🌍 جنوب آفریقا</h3>
+                        <p>آفریقای جنوبی، بوتسوانا، نامیبیا - پیشرفته‌ترین زیرساخت</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>🌍 شمال آفریقا</h3>
+                        <p>مصر، الجزایر، مراکش - نزدیک‌ترین به ایران</p>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://github.com/rezanb111/Sim/raw/refs/heads/main/NoteGPT_Image_20260529212012.png" alt="نقشه آفریقا">
+                        <div class="gallery-caption">تقسیم‌بندی جغرافیایی بازارها</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://github.com/rezanb111/Sim/raw/refs/heads/main/NoteGPT_Image_20260529211825.png" alt="آمار بازار">
+                        <div class="gallery-caption">آمار و ارقام کلیدی</div>
+                    </div>
+                </div>
+
+                <ul class="styled-list">
+                    <li>آفریقا یک کشور نیست - 54 کشور با قوانین و فرهنگ‌های متفاوت</li>
+                    <li>استراتژی فروش باید برای هر کشور به طور مجزا طراحی شود</li>
+                    <li>واتس‌اپ مهم‌ترین ابزار ارتباطی تجاری در سراسر قاره است</li>
+                    <li>ارتباط انسانی و اعتماد متقابل بر قیمت کالا مقدم است</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3: کنیا -->
+        <div class="slide" id="slide3">
+            <div class="card">
+                <div class="country-card">
+                    <h2 class="country-title">
+                        <span class="country-flag">🇰🇪</span>
+                        جمهوری کنیا - دروازه شرق آفریقا
+                    </h2>
+                    <div class="country-content">
+                        <p>کنیا موتور محرکه اقتصادی و مالی شرق آفریقا است. بندر مومباسا فعال‌ترین هاب ترانزیتی برای دسترسی به کشورهای محصور در خشکی منطقه مانند اوگاندا، رواندا، بوروندی و سودان جنوبی است.</p>
+                    </div>
+                    
+                    <div class="country-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon
+
+
+
+
+
+">🚢</div>
+                            <strong>بندر مومباسا</strong>
+                            <p>بزرگ‌ترین بندر شرق آفریقا</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">💼</div>
+                            <strong>مرکز iHiT</strong>
+                            <p>مرکز نوآوری ایران در نایروبی</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🗣️</div>
+                            <strong>زبان تجاری</strong>
+                            <p>انگلیسی</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">📊</div>
+                            <strong>ثبات اقتصادی</strong>
+                            <p>بالا</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">01</div>
+                        <div class="tip-content">
+                            <strong>دسترسی منطقه‌ای:</strong> با ورود به کنیا، به بازار 6 کشور همسایه دسترسی پیدا می‌کنید
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">02</div>
+                        <div class="tip-content">
+                            <strong>زیرساخت مالی:</strong> سیستم بانکی پیشرفته و امکان استفاده از M-Pesa
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">03</div>
+                        <div class="tip-content">
+                            <strong>محصولات پرتقاضا:</strong> مصالح ساختمانی، مواد غذایی، پتروشیمی
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/rezanb111/Sim/refs/heads/main/NoteGPT_Image_20260529210300.png" alt="بازار کنیا">
+                        <div class="gallery-caption">فرصت‌های تجاری در کنیا</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: ساحل عاج -->
+        <div class="slide" id="slide4">
+            <div class="card">
+                <div class="country-card">
+                    <h2 class="country-title">
+                        <span class="country-flag">🇨🇮</span>
+                        جمهوری ساحل عاج - قطب اقتصادی غرب آفریقا
+                    </h2>
+                    <div class="country-content">
+                        <p>این کشور با محوریت پایتخت اقتصادی خود، شهر آبیجان، مرکز ثبات، فرآوری و رشد در حوزه کشورهای فرانسوی‌زبان غرب آفریقا است. بندر آبیجان یکی از بزرگ‌ترین، مدرن‌ترین و عمیق‌ترین بنادر کل قاره آفریقا محسوب می‌شود.</p>
+                    </div>
+                    
+                    <div class="country-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🏗️</div>
+                            <strong>بندر آبیجان</strong>
+                            <p>مدرن‌ترین بندر غرب آفریقا</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🍫</div>
+                            <strong>تولید کاکائو</strong>
+                            <p>بزرگ‌ترین تولیدکننده جهان</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🗣️</div>
+                            <strong>زبان تجاری</strong>
+                            <p>فرانسوی</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🔄</div>
+                            <strong>امکان تهاتر</strong>
+                            <p>کالا با کاکائو</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="info-box">
+                        <h3>🎯 محصولات پرتقاضا</h3>
+                        <p>قیر، مصالح ساختمانی، کودهای شیمیایی، محصولات پلاستیکی</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>💡 نکته مهم</h3>
+                        <p>داشتن کاتالوگ فرانسوی و تسلط به زبان فرانسوی الزامی است</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>📈 پتانسیل رشد</h3>
+                        <p>ثبات اقتصادی بالا و رشد مداوم در بخش ساخت و ساز</p>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/rezanb111/Sim/refs/heads/main/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B5%DB%B2%DB%B9_%DB%B2%DB%B1%DB%B3%DB%B2%DB%B5%DB%B6.png" alt="ساحل عاج">
+                        <div class="gallery-caption">بازار ساحل عاج</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: نیجریه -->
+        <div class="slide" id="slide5">
+            <div class="card">
+                <div class="country-card">
+                    <h2 class="country-title">
+                        <span class="country-flag">🇳🇬</span>
+                        جمهوری فدرال نیجریه - بزرگ‌ترین بازار مصرفی
+                    </h2>
+                    <div class="country-content">
+                        <p>نیجریه با جمعیتی نزدیک به 220 میلیون نفر، پرجمعیت‌ترین کشور آفریقا و یکی از بزرگ‌ترین اقتصادهای آن است. این کشور به دلیل درآمدهای حاصل از فروش نفت، از قدرت خرید بالایی برخوردار است.</p>
+                    </div>
+                    
+                    <div class="country-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">👥</div>
+                            <strong>جمعیت</strong>
+                            <p>220 میلیون نفر</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🛢️</div>
+                            <strong>اقتصاد نفتی</strong>
+                            <p>قدرت خرید بالا</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">⚠️</div>
+                            <strong>ریسک</strong>
+                            <p>نوسانات ارزی بالا</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">💰</div>
+                            <strong>پیش‌پرداخت</strong>
+                            <p>الزامی</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">⚠️</div>
+                        <div class="tip-content">
+                            <strong>هشدار مهم:</strong> هرگز بدون دریافت پیش‌پرداخت نقدی مطمئن کالا ارسال نکنید
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">💼</div>
+                        <div class="tip-content">
+                            <strong>بوروکراسی:</strong> فرآیند گمرکی پیچیده و زمان‌بر است
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">📊</div>
+                        <div class="tip-content">
+                            <strong>حجم بازار:</strong> تقاضای عظیم برای مواد غذایی و پتروشیمی
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="https://github.com/rezanb111/Sim/raw/refs/heads/main/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B5%DB%B2%DB%B9_%DB%B2%DB%B1%DB%B3%DB%B2%DB%B4%DB%B4.png" alt="نیجریه">
+                        <div class="gallery-caption">فرصت‌ها و چالش‌های نیجریه</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: آفریقای جنوبی -->
+        <div class="slide" id="slide6">
+            <div class="card">
+                <div class="country-card">
+                    <h2 class="country-title">
+                        <span class="country-flag">🇿🇦</span>
+                        جمهوری آفریقای جنوبی - پیشرفته‌ترین زیرساخت
+                    </h2>
+                    <div class="country-content">
+                        <p>این کشور صنعتی‌ترین و توسعه‌یافته‌ترین اقتصاد قاره آفریقا است که از سیستم بانکی، پولی و حقوقی بسیار محکم و هماهنگ با استانداردهای اروپایی برخوردار است.</p>
+                    </div>
+                    
+                    <div class="country-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🏭</div>
+                            <strong>صنعتی‌ترین</strong>
+                            <p>اقتصاد قاره</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">⭐</div>
+                            <strong>استانداردها</strong>
+                            <p>سطح اروپایی</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🔒</div>
+                            <strong>قوانین</strong>
+                            <p>سخت‌گیرانه</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎖️</div>
+                            <strong>اعتبار</strong>
+                            <p>بین‌المللی بالا</p>
+
+
+       </div>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="info-box">
+                        <h3>✅ مزایا</h3>
+                        <p>ورود موفق به این بازار، اعتبار بین‌المللی بالایی برای برند شما ایجاد می‌کند</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>🎯 دسترسی منطقه‌ای</h3>
+                        <p>راه ورود به سایر کشورهای حوزه جنوب آفریقا (SACU) را هموار می‌سازد</p>
+                    </div>
+                    <div class="info-box">
+                        <h3>📋 الزامات</h3>
+                        <p>گواهینامه‌های کیفیت و استانداردهای بین‌المللی ضروری است</p>
+                    </div>
+                </div>
+
+                <ul class="styled-list">
+                    <li>سیستم بانکی و مالی پیشرفته و شفاف</li>
+                    <li>قوانین گمرکی دقیق و استاندارد محور</li>
+                    <li>بازار هدف برای محصولات با کیفیت بالا</li>
+                    <li>نیاز به گواهینامه‌های استاندارد بین‌المللی</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: نکات طلایی -->
+        <div class="slide" id="slide7">
+            <div class="card">
+                <div class="circular-note note-top-right">
+                    کلیدهای موفقیت در بازار آفریقا
+                </div>
+                <h2 class="card-title">نکات طلایی برای موفقیت</h2>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-number">01</div>
+                        <div class="tip-content">
+                            <strong>تنوع قاره:</strong> آفریقا 54 کشور با قوانین، فرهنگ‌ها و زبان‌های متفاوت است. استراتژی فروش را برای هر کشور مجزا طراحی کنید.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">02</div>
+                        <div class="tip-content">
+                            <strong>واتس‌اپ:</strong> مهم‌ترین ابزار ارتباطی تجاری. سرعت پاسخگویی و ارسال ویدیوهای واقعی از تولید، پایه اصلی اعتماد است.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">03</div>
+                        <div class="tip-content">
+                            <strong>ارتباط انسانی:</strong> اعتماد متقابل بر قیمت مقدم است. حداقل یک بار به کشور هدف سفر کنید و جلسات حضوری برگزار کنید.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">04</div>
+                        <div class="tip-content">
+                            <strong>انتخاب کالا:</strong> کالاهای با ماندگاری بالا و قیمت رقابتی مانند ماکارونی یا مصالح ساختمانی شانس موفقیت بالاتری دارند.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">05</div>
+                        <div class="tip-content">
+                            <strong>ظرفیت‌های دولتی:</strong> از مرکز iHiT در کنیا برای کاهش ریسک‌های اولیه ثبت شرکت و بازاریابی استفاده کنید.
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-number">06</div>
+                        <div class="tip-content">
+                            <strong>موافقت‌نامه‌های منطقه‌ای:</strong> شناخت COMESA و ECOWAS به شما کمک می‌کند با ورود به یک کشور، به چندین کشور دسترسی پیدا کنید.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    موفقیت در بازار آفریقا نیازمند تغییر دیدگاه از تجارت سنتی به بازرگانی استراتژیک، نظام‌مند و پایدار است
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-number">40-60</div>
+                        <div class="stat-label">روز زمان حمل</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">پیش‌پرداخت در نیجریه</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">پاسخگویی واتس‌اپ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: پرسش و پاسخ -->
+        <div class="slide" id="slide8">
+            <div class="card">
+                <h2 class="card-title">پرسش و پاسخ‌های کلیدی</h2>
+
+                <div class="qa-container">
+                    <div class="qa-item">
+                        <div class="question">
+                            چرا قاره آفریقا در حال حاضر به عنوان یک مقصد استراتژیک برای صادرات ایران محسوب می‌شود؟
+                        </div>
+                        <div class="answer">
+                            به دلیل رشد انفجاری جمعیت (1.3 میلیارد نفر فعلی و 2 میلیارد نفر تا سال 2050)، افزایش شهرنشینی، وابستگی بالای 70 درصدی کشورهای آفریقایی به واردات کالاهای مصرفی، و از سوی دیگر مزیت رقابتی ایران در تولید کالا با قیمت تمام‌شده پایین به دلیل انرژی و نیروی کار ارزان.
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">
+                            بزرگ‌ترین چالش‌های لجستیکی و مالی در صادرات به آفریقا چیست؟
+                        </div>
+                        <div class="answer">
+                            در حوزه لجستیک، نبود خطوط کشتیرانی مستقیم منظم از ایران به بنادر اصلی آفریقا که منجر به افزایش زمان حمل (40 تا 60 روز) و هزینه‌ها می‌شود. در حوزه مالی نیز محدودیت‌های بانکی ناشی از تحریم‌ها که نیازمند استفاده از روش‌های جایگزین مانند صرافی‌های واسط، تهاتر کالا یا ارزهای دیجیتال است.
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">
+                            چرا کشور کنیا به عنوان دروازه ورود به شرق آفریقا شناخته می‌شود؟
+                        </div>
+                        <div class="answer">
+                            کنیا دارای هاب لجستیکی بندر مومباسا است که تمام کشورهای محصور در خشکی منطقه را تغذیه می‌کند. همچنین سیستم مالی پیشرفته، زبان تجاری انگلیسی و وجود مرکز فناوری ایران (iHiT) در نایروبی، روند بازاریابی و ثبت شرکت را برای ایرانیان تسهیل کرده است.
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">
+                            تفاوت اصلی بازار ساحل عاج با کشورهای شرق آفریقا در چیست؟
+                        </div>
+                        <div class="answer">
+                            ساحل عاج یک کشور فرانسوی‌زبان در غرب آفریقا با سیستم حقوقی و تجاری برگرفته از فرانسه است، بنابراین داشتن کاتالوگ و تسلط به زبان فرانسوی الزامی است. این کشور ثبات اقتصادی بالایی دارد و به شدت نیازمند قیر، مصالح ساختمانی، کودهای شیمیایی و صنایع پلاستیک است.
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">
+                            در مواجهه با بازار پرجمعیت نیجریه، بازرگانان باید چه ریسک‌هایی را مدیریت کنند؟
+                        </div>
+                        <div class="answer">
+                            بازرگانان باید نوسانات شدید نرخ ارز محلی (نایرا)، چالش‌های بوروکراسی گمرکی و ریسک‌های امنیتی را مدیریت کنند. در این بازار هرگز نباید بدون دریافت پیش‌پرداخت نقدی مطمئن یا تضمین‌های مالی محکم، کالا را ارسال کرد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <h3>✨ سیما خورشیدیان</h3>
+                <p>مشاور و مدرس صادرات به آفریقا</p>
+                <p>این جزوه آموزشی برگرفته از تجربیات واقعی و میدانی در بازارهای آفریقایی است</p>
+                <div class="social-links">
+                    <a href="#">📧</a>
+                    <a href="#">📱</a>
+                    <a href="#">🌐</a>
+                    <a href="#">💼</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide Controls -->
+        <div class="slide-controls">
+            <button class="control-btn" onclick="previousSlide()">⏮️ قبلی</button>
+            <button class="control-btn" onclick="nextSlide()">بعدی ⏭️</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        // Hide loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Show specific slide
+        function showSlide(slideNumber) {
+            // Hide all slides
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById('slide' + i).classList.remove('active');
+            }
+            
+            // Show selected slide
+            document.getElementById('slide' + slideNumber).classList.add('active');
+            currentSlide = slideNumber;
+
+            // Update navigation buttons
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach((btn, index) => {
+                btn.classList.remove('active');
+                if (index + 1 === slideNumber) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Next slide
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        // Previous slide
+        function previousSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydo
